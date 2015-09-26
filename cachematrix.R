@@ -12,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) {
   }
   
   get <- function() {
-    print(x)
+    return(x)
   }
   
   makeInverse <- function(x) {
@@ -20,7 +20,7 @@ makeCacheMatrix <- function(x = matrix()) {
   }
   
   getInverse <- function() {
-    print(inverse)
+    return(inverse)
   }
   
   list(set = set,
@@ -34,8 +34,8 @@ makeCacheMatrix <- function(x = matrix()) {
 ## The computation is avoided if already performed.
 
 cacheSolve <- function(x, ...) {
-  if(x$getInverse != NULL) {
+  if(is.null(x$makeInverse) == TRUE) {
     inverse <- makeInverse(x)
   }
-  print(inverse)
+  return(inverse)
 }
